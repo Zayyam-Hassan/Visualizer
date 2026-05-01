@@ -1,0 +1,43 @@
+# Git / IDE
+.git
+.gitignore
+.cursor
+.vscode
+.idea
+
+# Python virtual environments (never copy into image)
+venv
+.venv
+env
+.python-version
+
+# Bytecode / caches
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache
+.mypy_cache
+.ruff_cache
+.coverage
+htmlcov
+
+# Local secrets — image copies `.env.example` as `.env` by Dockerfile design;
+# never bake real `.env` into build context by mistake.
+.env
+.env.*
+!.env.example
+
+# Runtime / mounted dirs (large or recreated in container)
+outputs
+uploads
+*.log
+
+# Optional heavier installs not used by default image build
+requirements-sam2.txt
+
+# Docs & tooling not needed at runtime
+tests
+*.md
+Dockerfile*
+docker-compose*.yml
