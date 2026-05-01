@@ -2,6 +2,7 @@ FROM python:3.11-slim
 
 # System dependencies required by OpenCV headless
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    git \
     libglib2.0-0 \
     libsm6 \
     libxext6 \
@@ -14,6 +15,8 @@ WORKDIR /app
 
 # Install Python dependencies first (layer cache-friendly)
 COPY requirements.txt .
+# SAM2 from git+https; CPU-only build inside slim image (no CUDA toolkit).
+ENV SAM2_BUILD_CUDA=0
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
