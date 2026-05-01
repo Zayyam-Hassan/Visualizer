@@ -3,8 +3,8 @@ uvicorn[standard]==0.29.0
 python-multipart==0.0.9
 pydantic==2.7.1
 pydantic-settings==2.2.1
-torch==2.3.0
-torchvision==0.18.0
+torch==2.5.1
+torchvision==0.20.1
 transformers==4.41.0
 accelerate==0.30.0
 opencv-python-headless==4.9.0.80

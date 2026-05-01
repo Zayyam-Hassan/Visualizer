@@ -15,7 +15,7 @@ WORKDIR /app
 
 # Install Python dependencies first (layer cache-friendly)
 COPY requirements.txt .
-# SAM2 from git+https; CPU-only build inside slim image (no CUDA toolkit).
+# SAM2 includes CUDA extensions; disable CUDA build for CPU container images.
 ENV SAM2_BUILD_CUDA=0
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
